@@ -1,0 +1,25 @@
+def calcular_aumento(salario):
+    if salario <= 280:
+        percentual_aumento = 20
+    elif 280 < salario <= 700:
+        percentual_aumento = 15
+    elif 700 < salario <= 1500:
+        percentual_aumento = 10
+    else:
+        percentual_aumento = 5
+
+    aumento = salario * (percentual_aumento / 100)
+    novo_salario = salario + aumento
+    inflacao = 3.8
+    salario_ajustado = novo_salario * (1 - inflacao / 100)
+
+    return percentual_aumento, aumento, novo_salario, inflacao, salario_ajustado
+
+salario_inicial = float(input("Digite o salário atual: "))
+percentual, aumento, novo_salario, inflacao, salario_ajustado = calcular_aumento(salario_inicial)
+
+print(f"Percentual de aumento aplicado: {percentual}%")
+print(f"Valor do aumento: R$ {aumento:.2f}")
+print(f"Novo salário: R$ {novo_salario:.2f}")
+print(f"Inflação do período: {inflacao:.2f}%")
+print(f"Salário após descontada a inflação: R$ {salario_ajustado:.2f}")
